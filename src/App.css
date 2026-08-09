@@ -95,7 +95,8 @@ input {
   list-style: none;
   width: 80%;
   overflow: scroll;
-
+  flex-wrap: wrap;
+  overflow-x: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.2rem;
