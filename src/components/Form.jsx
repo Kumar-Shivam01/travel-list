@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Form() {
+function Form({onAddItems}) {
   const [desc, setDesc] = useState("");
   const [quantity, setQuantity] = useState(1);
 
@@ -8,9 +8,10 @@ function Form() {
     e.preventDefault(); //prevent the reload/navigate during form submission
     if(!desc) return;
 
-    const newIntem = {id: Date.now() ,desc, quantity, packed: false};
-    console.log(newIntem)
+    const newItem = {id: Date.now() ,desc, quantity, packed: false};
+    console.log(newItem)
 
+    onAddItems(newItem)
     setDesc("")
     setQuantity(1)
   }
@@ -35,7 +36,7 @@ function Form() {
         value={desc}  //e.target refers to the element that triggered the event.
         onChange={(e) => setDesc(e.target.value)} //e is the event object
       />
-
+      
       <button>add</button>
     </form>
   );
