@@ -12,11 +12,14 @@ function App() {
   }
   //spreading (...) creates a brand new array, which is the correct, immutable way to update state in React.
   //(items) => [...items, item] : using the function form guarantees you don't lose updates due to stale closures, safer to use.
+  function handleDeleteItem(id){
+    setItems(items=>items.filter(item=>item.id != id))
+  }
   return (
     <div className="app">
       <Logo/>
       <Form onAddItems={handleAddItems}/>
-      <PackingList items={items}/>
+      <PackingList items={items} onDeleteItem={handleDeleteItem}/>
       <Stats/>
     </div>
   );
