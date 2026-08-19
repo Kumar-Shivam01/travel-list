@@ -5,11 +5,11 @@ import Item from './Item'
 //   { id: 2, description: "Socks", quantity: 12, packed: true },
 // ];
 
-function PackingList({items,onDeleteItem}) {
+function PackingList({items,onDeleteItem,onToggleItems}) {
   return (
     <div className='list' >
       <ul>
-        {items.map((item)=><Item item={item} key={item.id} onDeleteItem={onDeleteItem} />)}
+        {items.map((item)=><Item item={item} key={item.id} onDeleteItem={onDeleteItem} onToggleItems={onToggleItems} />)}
       </ul>
     </div>
     )
