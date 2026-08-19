@@ -6,7 +6,7 @@ import Item from "./Item";
 //   { id: 2, description: "Socks", quantity: 12, packed: true },
 // ];
 
-function PackingList({ items, onDeleteItem, onToggleItems }) {
+function PackingList({ items, onDeleteItem, onToggleItems, onClearList }) {
   const [sortBy,setSortBy] = useState('input')
   let sortedItems; //derived state
   if(sortBy === 'input') sortedItems = items;
@@ -30,6 +30,7 @@ function PackingList({ items, onDeleteItem, onToggleItems }) {
           <option value="desc">Sort by description</option>
           <option value="packed">Sort by packed status</option>
         </select>
+        <button onClick={onClearList}>Clear list</button>
       </div>
     </div>
   );
